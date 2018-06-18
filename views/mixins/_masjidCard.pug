@@ -1,0 +1,30 @@
+mixin masjidCard(masjid = {})
+  .masjid
+    .masjid__hero
+      .masjid__actions
+        if user
+          .masjid__action.masjid__action--heart
+            form.heart(method="POST" action=`/api/masajid/${masjid._id}/heart`)
+              - const heartStrings = user.hearts.map(obj => obj.toString())
+              - const heartClass = heartStrings.includes(masjid._id.toString()) ? 'heart__button--hearted' : ''
+              button.heart__button(type="submit" name="heart" class=heartClass)
+                != h.icon('heart')
+        if user && masjid.author.equals(user._id)
+          .masjid__action.masjid__action--edit
+            a(href=`/masajid/${masjid._id}/edit`)
+              != h.icon('pencil')
+        if masjid.reviews
+          .masjid__action.masjid__action--count
+            != h.icon('review')
+            span= masjid.reviews.length
+      a(href=`/masjid/${masjid.slug}`) #{masjid.name}
+        a(href=`/masjid/${masjid.slug}`)
+          img(src=`/uploads/${masjid.photo || 'masjid.png'}`)
+      p
+        a(href=`/masjid/${masjid.slug}`) #{masjid.name}
+          img(src=`/uploads/${masjid.photo || 'masjid.png'}`)
+        
+    .masjid__details
+      p= masjid.name
+      p= masjid.location.address
+  

@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  .inner
+    h2= 'Masjid Locator'
+    .map
+      .autocomplete
+        input.autocomplete__input(type="text" placeholder="Search for Nearby Masjid" name="geolocate")
+      #map
+        p Loading Map...

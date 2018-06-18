@@ -1,0 +1,69 @@
+mixin masjidForm(masjid = {})
+  form(action=`/add/${masjid._id || ''}` method="POST" class="card" enctype="multipart/form-data")
+    pre= h.dump(masjid)
+
+    //- Profile Of the Mosque
+    label(for="name") Name of Masjid
+    input(type="text" name="name" value=masjid.name)
+    label(for="description") Description
+    textarea(name="description")= masjid.description
+    label(for="population") Population Size
+    input(type="number" name="population" value=masjid.population)
+    label(for="language") Language of Service
+    input(type="text" name="language" value=masjid.language)
+    label(for="bank") Name of Banker
+    input(type="text" name="bank" value=masjid.bank)
+    label(for="acctname") Account name
+    input(type="text" name="acctname" value=masjid.acctname)
+    label(for="acctno") Account number
+    input(type="number" name="acctno" value=masjid.acctno)
+    label(for="website") Website (if any)
+    input(type="text" name="website" value=masjid.website)
+
+    //- Custodians Of the Mosque
+    label(for="imam_name") Name of Imam
+    input(type="text" name="imam_name" value=masjid.imam_name)
+    label(for="imam_phone_no") Phone number of Imam
+    input(type="number" name="imam_phone_no" value=masjid.imam_phone_no)
+    label(for="imam_email") Email
+    input(type="text" name="imam_email" value=masjid.imam_email)
+    label(for="sec_name") Name of Mosque Secretary
+    input(type="text" name="sec_name" value=masjid.sec_name)
+    label(for="sec_phone_no") Phone number of Mosque Secretary
+    input(type="number" name="sec_phone_no" value=masjid.sec_phone_no)
+    label(for="sec_email") Email
+    input(type="text" name="sec_email" value=masjid.sec_email)
+    label(for="madrasah_name") Name of Madrasah
+    input(type="text" name="madrasah_name" value=masjid.madrasah_name)
+    label(for="madrasah_phone_no") Madrasah Contact number
+    input(type="number" name="madrasah_phone_no" value=masjid.madrasah_phone_no)
+
+    //- Image Upload
+    label(for="photo") Photo view of Masjid
+      input(type="file" name="photo" id="photo" accept="image/gif, image/png, image/jpeg")
+      if masjid.photo
+        img(src=`/uploads/${masjid.photo}`, alt=masjid.name width=200)
+    //- address, lng and lat
+    label(for="address") Address
+    input(type="text" id="address" name="location[address]" value=(masjid.location && masjid.location.address))
+    label(for="lng") Address Lng
+    input(type="text" id="lng" name="location[coordinates][0]" value=(masjid.location && masjid.location.coordinates[0]) required)
+    label(for="lat") Address Lat
+    input(type="text" id="lat" name="location[coordinates][1]" value=(masjid.location && masjid.location.coordinates[1]) required)
+    label(for="city") City
+    input(type="text" id="city" name="location[city]" value=(masjid.location && masjid.location.city))
+    label(for="state") State/Province/Region
+    input(type="text" id="state" name="location[state]" value=(masjid.location && masjid.location.address.state))
+    label(for="country") Country
+    input(type="text" id="country" name="location[country]" value=(masjid.location && masjid.location.address.country))
+
+    //- Features of the Mosque
+    label(for="choices") Features of Masjid
+    - const choices = ['Ratibi', 'Central', 'Structured', 'Unstructured', 'Registered', 'Unregistered', 'Toilet', 'Borehole', 'Hall', 'Ablution Centre', 'Madrasah', 'Islamic Banking', 'Library', 'Generator']
+    - const tags = masjid.tags || []
+    ul.tags
+      each choice in choices
+        .tag.tag__choice
+          input(type="checkbox" id=choice value=choice name="tags" checked=(tags.includes(choice)))
+          label(for=choice) #{choice}
+    input(type="submit" value="Save →" class="button")

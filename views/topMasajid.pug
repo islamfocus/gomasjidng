@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .inner
+    h2 Top #{masajid.length} Masajid
+    table.table
+      thead
+        td photo
+        td ranking
+        td name
+        td reviews
+        td Average Rating
+      each masjid, i in masajid
+        tr
+          td
+            a(href=`/masjid/${masjid.slug}`)
+              img(width=200 src=`/uploads/${masjid.photo || 'masjid.png'}` alt=masjid.name)
+          td #{i + 1}
+          td: a(href=`/masjid/${masjid.slug}`)= masjid.name
+          td= masjid.reviews.length
+          td #{Math.round(masjid.averageRating * 10) / 10} / 5

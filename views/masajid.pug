@@ -1,0 +1,12 @@
+extends layout
+
+include mixins/_masjidCard
+include mixins/_pagination
+
+block content
+  .inner
+    h2= 'Mosques in Nigeria'
+    .masajid
+      each masjid in masajid
+        +masjidCard(masjid)
+    +pagination(page, pages, count)

@@ -1,0 +1,32 @@
+extends layout
+
+include mixins/_reviewForm
+include mixins/_review
+
+block content
+  .single
+    .single__hero
+      img.single__image(src=`/uploads/${masjid.photo || 'masjid.png'}`)
+      h2.title.title--single
+        a(href=`/masjid/${masjid.slug}`) #{masjid.name}
+
+  .single__details.inner
+    img.single__map(src=h.staticMap(masjid.location.coordinates))
+    p.single__location= masjid.location.address
+    p= masjid.description
+
+    if masjid.tags
+      ul.tags
+        each tag in masjid.tags
+          li.tag
+            a.tag__link(href=`/tags/${tag}`)
+              span.tag__text  ##{tag}
+
+    if user
+      +reviewForm(masjid)
+
+    if masjid.reviews
+      .reviews
+        each review in masjid.reviews
+          .review
+            +review(review)

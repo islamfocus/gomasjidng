@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  .inner
+    form.form(action="/register" method="POST")
+      h2 Register
+      label(for="firstname") First Name
+      input(type="text" name="firstname")
+      label(for="surname") Last Name
+      input(type="text" name="surname")
+      label(for="phone_no") Phone number
+      input(type="number" name="phone_no")
+      label(for="email") Email
+      input(type="email" name="email")
+      label(for='choices') Check the boxes that best describe you.
+      - const choices = ['Imam', 'Masjid Manager', 'Masjid Volunteer', 'Masjid Donor', 'General Muslim']
+      ul.tags
+        each choice in choices
+          .tag.tag__choice
+            input(type="checkbox" id=choice value=choice name="choices")
+            label(for=choice) #{choice}
+      label(for="password") Password
+      input(type="password" name="password")
+      label(for="password-confirm") Confirm Password
+      input(type="password" name="password-confirm")
+      input.button(type="submit" value="Register →")
