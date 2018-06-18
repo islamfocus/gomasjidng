@@ -40,7 +40,7 @@ exports.register = async (req, res, next) => {
   const user = new User({ email: req.body.email, firstname: req.body.firstname, surname: req.body.surname, phone_no: req.body.phone_no });
   const register = promisify(User.register, User);
   await register(user, req.body.password);
-  next(); // pass to authController.login
+  // pass to authController.login
 };
 
 exports.account = (req, res) => {

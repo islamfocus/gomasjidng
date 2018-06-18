@@ -25,7 +25,7 @@ const masjidSchema = new mongoose.Schema({
     type: Number,
     required: 'SubhanaLlah! You must supply the average population size of the masjid!'
   },
-  language: {
+  langservice: {
     type: String,
     trim: true,
     required: 'SubhanaLlah! Please enter the language of service of the masjid!'

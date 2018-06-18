@@ -4,19 +4,19 @@ mixin masjidForm(masjid = {})
 
     //- Profile Of the Mosque
     label(for="name") Name of Masjid
-    input(type="text" name="name" value=masjid.name)
+    input(type="text" name="name" value=masjid.name placeholder="Insert Full name of Mosque")
     label(for="description") Description
     textarea(name="description")= masjid.description
     label(for="population") Population Size
     input(type="number" name="population" value=masjid.population)
-    label(for="language") Language of Service
-    input(type="text" name="language" value=masjid.language)
-    label(for="bank") Name of Banker
-    input(type="text" name="bank" value=masjid.bank)
-    label(for="acctname") Account name
-    input(type="text" name="acctname" value=masjid.acctname)
-    label(for="acctno") Account number
-    input(type="number" name="acctno" value=masjid.acctno)
+    //-label(for="langservice") Language of Service
+    //-input(type="text" name="langservice" value=masjid.langservice placeholder="Pick any of English, Arabic, Yoruba, Hausa or Igbo")
+    //-label(for="bank") Name of Banker
+    //-input(type="text" name="bank" value=masjid.bank placeholder="Pick any of Firstbank, GTBank, AccessBank, etc")
+    //-label(for="acctname") Account name
+    //-input(type="text" name="acctname" value=masjid.acctname)
+    //-label(for="acctno") Account number
+    //-input(type="number" name="acctno" value=masjid.acctno)
     label(for="website") Website (if any)
     input(type="text" name="website" value=masjid.website)
 
@@ -24,19 +24,19 @@ mixin masjidForm(masjid = {})
     label(for="imam_name") Name of Imam
     input(type="text" name="imam_name" value=masjid.imam_name)
     label(for="imam_phone_no") Phone number of Imam
-    input(type="number" name="imam_phone_no" value=masjid.imam_phone_no)
+    input(type="number" name="imam_phone_no" value=masjid.imam_phone_no placeholder="2348012345678")
     label(for="imam_email") Email
     input(type="text" name="imam_email" value=masjid.imam_email)
     label(for="sec_name") Name of Mosque Secretary
     input(type="text" name="sec_name" value=masjid.sec_name)
     label(for="sec_phone_no") Phone number of Mosque Secretary
-    input(type="number" name="sec_phone_no" value=masjid.sec_phone_no)
+    input(type="number" name="sec_phone_no" value=masjid.sec_phone_no placeholder="2348012345678")
     label(for="sec_email") Email
     input(type="text" name="sec_email" value=masjid.sec_email)
     label(for="madrasah_name") Name of Madrasah
     input(type="text" name="madrasah_name" value=masjid.madrasah_name)
     label(for="madrasah_phone_no") Madrasah Contact number
-    input(type="number" name="madrasah_phone_no" value=masjid.madrasah_phone_no)
+    input(type="number" name="madrasah_phone_no" value=masjid.madrasah_phone_no placeholder="2348012345678")
 
     //- Image Upload
     label(for="photo") Photo view of Masjid

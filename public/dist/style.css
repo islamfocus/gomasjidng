@@ -184,7 +184,7 @@ dfn {
  * Add the correct background and color in IE 9-.
  */
 mark {
-  background-color: #00ff00;
+  background-color: #47ec47;
   color: #000; }
 
 /**
@@ -965,7 +965,7 @@ label {
     left: 0;
     content: '';
     display: block;
-    background: linear-gradient(0, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%);
+    background: #47ec47;
     position: absolute;
     height: 100%;
     background-attachment: fixed; }
@@ -1112,7 +1112,7 @@ label {
 
 .button {
   border: 0;
-  background: #00ff00;
+  background: #47ec47;
   color: #ffffff;
   font-family: 'Panama';
   font-weight: 600; }
