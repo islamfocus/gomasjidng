@@ -25,6 +25,7 @@ mixin masjidCard(masjid = {})
           img(src=`/uploads/${masjid.photo || 'masjid.png'}`)
         
     .masjid__details
-      p= masjid.name
+      p
+        strong=masjid.name
       p= masjid.location.address
   
