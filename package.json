@@ -33,6 +33,7 @@
     "forever": "0.15.3",
     "git-assert-clean": "^1.0.0",
     "git-clean": "0.0.9",
+    "git-origin-url": "^0.3.0",
     "glob": "7.1.1",
     "html-to-text": "3.2.0",
     "i": "^0.3.6",
