@@ -13,14 +13,14 @@ mixin masjidForm(masjid = {})
     input(type="number" name="population" value=masjid.population placeholder="average population capacity")
     label(for="langservice") Language of Service
     input(type="text" name="langservice" value=masjid.langservice placeholder="English, Arabic, Yoruba, Hausa or Igbo")
-    //-label(for="bank") Name of Banker
-    //-input(type="text" name="bank" value=masjid.bank placeholder="Pick any of Firstbank, GTBank, AccessBank, etc")
-    //-label(for="acctname") Account name
-    //-input(type="text" name="acctname" value=masjid.acctname)
-    //-label(for="acctno") Account number
-    //-input(type="number" name="acctno" value=masjid.acctno)
-    //-label(for="website") Website (if any)
-    //-input(type="text" name="website" value=masjid.website)
+    label(for="bank") Name of Banker
+    input(type="text" name="bank" value=masjid.bank placeholder="Pick any of Firstbank, GTBank, AccessBank, etc")
+    label(for="acctname") Account name
+    input(type="text" name="acctname" value=masjid.acctname)
+    label(for="acctno") Account number
+    input(type="number" name="acctno" value=masjid.acctno)
+    label(for="website") Website (if any)
+    input(type="text" name="website" value=masjid.website)
     p
       strong Custodians of the Mosque
     //- Custodians Of the Mosque
@@ -36,10 +36,10 @@ mixin masjidForm(masjid = {})
     input(type="number" name="sec_phone_no" value=masjid.sec_phone_no placeholder="WhatsApp Line")
     label(for="sec_email") Email
     input(type="text" name="sec_email" value=masjid.sec_email)
-    //-label(for="madrasah_name") Name of Madrasah
-    //-input(type="text" name="madrasah_name" value=masjid.madrasah_name)
-    //-label(for="madrasah_phone_no") Madrasah Contact number
-    //-input(type="number" name="madrasah_phone_no" value=masjid.madrasah_phone_no placeholder="2348012345678")
+    label(for="madrasah_name") Name of Madrasah
+    input(type="text" name="madrasah_name" value=masjid.madrasah_name)
+    label(for="madrasah_phone_no") Madrasah Contact number
+    input(type="number" name="madrasah_phone_no" value=masjid.madrasah_phone_no placeholder="2348012345678")
     p
       strong Location of the Mosque
     //- Image Upload
