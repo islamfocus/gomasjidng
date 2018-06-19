@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- '0.10'
+deploy:
+  provider: npm
+  email: bvdrucker@gmail.com
+  api_key:
+    secure: B9UPzOGIg45g4CXiMjsTXGJAGoWV8B5Kgw8mhyszV3IbztEIHzeA3lkPH1oBy3HC5Moagb5ST2v5JhfzqLESYLYF8Mjssfr1f/a/Aa+7HYVAWZhHIaEkOC0UcmRDoi8caltNYQUEicy9kHTafhqXmPPln4aceeiUyhM7z3fAnts=
+  on:
+    tags: true
+    all_branches: true
+    repo: bendrucker/git-assert-clean
