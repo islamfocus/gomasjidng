@@ -12,8 +12,9 @@ autocomplete( $('#country') );
 autocomplete( $('#state') );
 
 typeAhead( $('.search') );
-
 makeMap( $('#map') );
+makeMap( $('#qibla') );
+
 
 const heartForms = $$('form.heart');
 heartForms.on('submit', ajaxHeart);

@@ -2,9 +2,9 @@ extends layout
 
 block content
   .inner
-    h2= title
-    .map
+    h2= 'Qibla Finder'
+    .qibla
       .autocomplete
-        input.autocomplete__input(type="text" placeholder="Search for Nearby Masjid" name="geolocate")
+        input.autocomplete__input(type="text" placeholder="find the Qibla Direction from where you are!" name="geolocate")
       #map
-        p Loading Map...
+        p Loading Qibla Direction...

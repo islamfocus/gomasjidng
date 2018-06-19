@@ -6,7 +6,6 @@ const mapOptions = {
   zoom: 10
 };
 
-
 function loadPlaces(map, lat = 21.422487, lng = 39.826206	) {
     axios.get(`/api/masajid/near?lat=${lat}&lng=${lng}`)
     .then(res => {
@@ -15,18 +14,17 @@ function loadPlaces(map, lat = 21.422487, lng = 39.826206	) {
         alert('SubhanalLah! no masjid was found!');
         return;
       };
-
       const arrow = document.querySelector('/.arrow');
       const speed = document.querySelector('/.speed-value');
       
-      navigator.geolocation.getCurrentPosition((data) => {
+      navigator.geolocation.watchPosition((data) => {
         console.log(data);
         speed.textContent = data.coords.speed;
         arrow.style.transform = `rotate(${data.coords.heading}deg)`;
       }, (err) => {
         console.error(err);
       });
-
+      
       // create a bounds
       const bounds = new google.maps.LatLngBounds();
       const infoWindow = new google.maps.InfoWindow();

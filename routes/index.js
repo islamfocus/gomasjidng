@@ -52,6 +52,9 @@ router.post('/account/reset/:token',
   authController.confirmedPasswords,
   catchErrors(authController.update)
 );
+
+router.get('/qibla', masjidController.qiblaPage);
+
 router.get('/map', masjidController.mapPage);
 router.get('/hearts', authController.isLoggedIn, catchErrors(masjidController.getHearts));
 router.post('/reviews/:id',

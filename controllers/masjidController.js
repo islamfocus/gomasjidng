@@ -164,6 +164,10 @@ exports.mapPage = (req, res) => {
   res.render('map', { title: 'Map' });
 };
 
+exports.qiblaPage = (req, res) => {
+ res.render('qibla', { title: 'Qibla' });
+};
+
 exports.heartMasjid = async (req, res) => {
   const hearts = req.user.hearts.map(obj => obj.toString());
 
