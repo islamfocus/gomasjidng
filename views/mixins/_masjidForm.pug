@@ -13,12 +13,12 @@ mixin masjidForm(masjid = {})
     input(type="number" name="population" value=masjid.population placeholder="average population capacity")
     label(for="langservice") Language of Service
     input(type="text" name="langservice" value=masjid.langservice placeholder="English, Arabic, Yoruba, Hausa or Igbo")
-    label(for="bank") Name of Banker
-    input(type="text" name="bank" value=masjid.bank placeholder="Pick any of Firstbank, GTBank, AccessBank, etc")
-    label(for="acctname") Account name
-    input(type="text" name="acctname" value=masjid.acctname)
-    label(for="acctno") Account number
-    input(type="number" name="acctno" value=masjid.acctno)
+    //-label(for="bank") Name of Banker
+    //-input(type="text" name="bank" value=masjid.bank placeholder="Pick any of Firstbank, GTBank, AccessBank, etc")
+    //-label(for="acctname") Account name
+    //-input(type="text" name="acctname" value=masjid.acctname)
+    //-label(for="acctno") Account number
+    //-input(type="number" name="acctno" value=masjid.acctno)
     label(for="website") Website (if any)
     input(type="text" name="website" value=masjid.website)
     p
@@ -43,7 +43,7 @@ mixin masjidForm(masjid = {})
     p
       strong Location of the Mosque
     //- Image Upload
-    label(for="photo") Photo view of Masjid
+    label(for="photo") Front Photo view of Masjid
       input(type="file" name="photo" id="photo" accept="image/gif, image/png, image/jpeg")
       if masjid.photo
         img(src=`/uploads/${masjid.photo}`, alt=masjid.name width=200)
