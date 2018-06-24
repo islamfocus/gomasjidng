@@ -1021,10 +1021,99 @@ exports.default = ajaxHeart;
 
 /***/ }),
 /* 12 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-throw new Error("Module build failed: SyntaxError: C:/lnd/stepped-solutions/masjid-ng/public/javascripts/modules/map.js: Unexpected token (5:16)\n\n\u001b[0m \u001b[90m 3 | \u001b[39m\n \u001b[90m 4 | \u001b[39m\u001b[36mconst\u001b[39m mapOptions \u001b[33m=\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 | \u001b[39m  center\u001b[33m:\u001b[39m { lat \u001b[33m=\u001b[39m \u001b[35m9.0579\u001b[39m\u001b[33m,\u001b[39m lng \u001b[33m=\u001b[39m \u001b[35m7.4951\u001b[39m }\u001b[33m,\u001b[39m\n \u001b[90m   | \u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 | \u001b[39m  zoom\u001b[33m:\u001b[39m \u001b[35m10\u001b[39m\n \u001b[90m 7 | \u001b[39m}\u001b[33m;\u001b[39m\n \u001b[90m 8 | \u001b[39m\u001b[0m\n");
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+var _axios = __webpack_require__(2);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _bling = __webpack_require__(1);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapOptions = {
+  center: { lat: 21.422487, lng: 39.826206 },
+  zoom: 10
+};
+
+function loadPlaces(map) {
+  var lat = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 9.0600;
+  var lng = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 7.4899;
+
+  _axios2.default.get('/api/masajid/near?lat=' + lat + '&lng=' + lng).then(function (res) {
+    var places = res.data;
+    if (!places.length) {
+      alert('SubhanalLah! no masjid was found!');
+      return;
+    };
+
+    var arrow = document.querySelector('/.arrow');
+    var speed = document.querySelector('/.speed-value');
+
+    navigator.geolocation.getCurrentPosition(function (data) {
+      console.log(data);
+      speed.textContent = data.coords.speed;
+      arrow.style.transform = 'rotate(' + data.coords.heading + 'deg)';
+    }, function (err) {
+      console.error(err);
+    });
+
+    // create a bounds
+    var bounds = new google.maps.LatLngBounds();
+    var infoWindow = new google.maps.InfoWindow();
+
+    var markers = places.map(function (place) {
+      var _place$location$coord = _slicedToArray(place.location.coordinates, 2),
+          placeLng = _place$location$coord[0],
+          placeLat = _place$location$coord[1];
+
+      var position = { lat: placeLat, lng: placeLng };
+      bounds.extend(position);
+      var marker = new google.maps.Marker({ map: map, position: position });
+      marker.place = place;
+      return marker;
+    });
+
+    // when someone clicks on a marker, show the details of that place
+    markers.forEach(function (marker) {
+      return marker.addListener('click', function () {
+        console.log(this.place);
+        var html = '\n          <div class="popup">\n            <a href="/masjid/' + this.place.slug + '">\n              <img src="/uploads/' + (this.place.photo || 'store.png') + '" alt="' + this.place.name + '" />\n              <p>' + this.place.name + ' - ' + this.place.location.address + ' - ' + this.place.imam_name + ' - ' + this.place.imam_phone_no + '</p>\n            </a>\n          </div>\n        ';
+        infoWindow.setContent(html);
+        infoWindow.open(map, this);
+      });
+    });
+
+    // then zoom the map to fit all the markers perfectly
+    map.setCenter(bounds.getCenter());
+    map.fitBounds(bounds);
+  });
+}
+
+function makeMap(mapDiv) {
+  if (!mapDiv) return;
+  // make our map
+  var map = new google.maps.Map(mapDiv, mapOptions);
+  loadPlaces(map);
+
+  var input = (0, _bling.$)('[name="geolocate"]');
+  var autocomplete = new google.maps.places.Autocomplete(input);
+  autocomplete.addListener('place_changed', function () {
+    var place = autocomplete.getPlace();
+    loadPlaces(map, place.geometry.location.lat(), place.geometry.location.lng());
+  });
+}
+
+exports.default = makeMap;
 
 /***/ }),
 /* 13 */
