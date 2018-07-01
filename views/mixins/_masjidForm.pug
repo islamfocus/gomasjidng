@@ -27,19 +27,19 @@ mixin masjidForm(masjid = {})
     label(for="imam_name") Name of Imam
     input(type="text" name="imam_name" value=masjid.imam_name)
     label(for="imam_phone_no") Phone number of Imam
-    input(type="number" name="imam_phone_no" value=masjid.imam_phone_no placeholder="WhatsApp Line")
-    label(for="imam_email") Email
-    input(type="text" name="imam_email" value=masjid.imam_email)
-    label(for="sec_name") Name of Mosque Secretary
+    input(type="number" name="imam_phone_no" value=masjid.imam_phone_no placeholder="Preferrably WhatsApp Line")
+    //-label(for="imam_email") Email
+    //-input(type="text" name="imam_email" value=masjid.imam_email)
+    label(for="sec_name") Name of Deputy Imam / Mosque Secretary / Mosque Admin
     input(type="text" name="sec_name" value=masjid.sec_name)
-    label(for="sec_phone_no") Phone number of Mosque Secretary
-    input(type="number" name="sec_phone_no" value=masjid.sec_phone_no placeholder="WhatsApp Line")
-    label(for="sec_email") Email
-    input(type="text" name="sec_email" value=masjid.sec_email)
-    label(for="madrasah_name") Name of Madrasah
-    input(type="text" name="madrasah_name" value=masjid.madrasah_name)
-    label(for="madrasah_phone_no") Madrasah Contact number
-    input(type="number" name="madrasah_phone_no" value=masjid.madrasah_phone_no placeholder="2348012345678")
+    label(for="sec_phone_no") Phone number 
+    input(type="number" name="sec_phone_no" value=masjid.sec_phone_no placeholder="Preferrably WhatsApp Line")
+    //-label(for="sec_email") Email
+    //-input(type="text" name="sec_email" value=masjid.sec_email)
+    //-label(for="madrasah_name") Name of Mosque Madrasah
+    //-input(type="text" name="madrasah_name" value=masjid.madrasah_name)
+    //-label(for="madrasah_phone_no") Madrasah Contact number
+    //-input(type="number" name="madrasah_phone_no" value=masjid.madrasah_phone_no placeholder="Preferrably WhatsApp Line")
     p
       strong Location of the Mosque
     //- Image Upload
@@ -56,15 +56,15 @@ mixin masjidForm(masjid = {})
     input(type="text" id="lat" name="location[coordinates][1]" value=(masjid.location && masjid.location.coordinates[1]) required)
     label(for="city") City
     input(type="text" id="city" name="location[city]" value=(masjid.location && masjid.location.city))
-    label(for="state") State
-    input(type="text" id="state" name="location[state]" value=(masjid.location && masjid.location.address.state))
-    label(for="country") Country
-    input(type="text" id="country" name="location[country]" value=(masjid.location && masjid.location.address.country))
+    //-label(for="state") State
+    //-input(type="text" id="state" name="location[state]" value=(masjid.location && masjid.location.state))
+    //-label(for="country") Country
+    //-input(type="text" id="country" name="location[country]" value=(masjid.location && masjid.location.country))
     p
       strong Features of the Mosque
     //- Features of the Mosque
     label(for="choices") Check one or more features as appropriate
-    - const choices = ['Basic', 'Central', 'Structured', 'Unstructured', 'Registered', 'Unregistered', 'Toilet', 'Borehole', 'Hall', 'Ablution Centre', 'Madrasah', 'Islamic Banking', 'Library', 'Generator']
+    - const choices = ['Basic', 'Central Jumat', 'Structured', 'Registered', 'Toilet', 'Borehole', 'Hall', 'Ablution Centre', 'Madrasah', 'Islamic Banking', 'Library', 'Generator']
     - const tags = masjid.tags || []
     ul.tags
       each choice in choices

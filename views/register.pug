@@ -12,8 +12,8 @@ block content
       input(type="number" name="phone_no")
       label(for="email") Email
       input(type="email" name="email")
-      label(for='choices') Check the boxes that best describe you.
-      - const choices = ['Imam', 'Masjid Manager', 'Masjid Volunteer', 'Masjid Donor', 'General Muslim']
+      label(for='choices') Check the boxes that best describe you as a Mosque Manager.
+      - const choices = ['Imam', 'Secretary', 'Mosque Committee member', 'Mosque Youth Volunteer member', 'Mosque Muazzim']
       ul.tags
         each choice in choices
           .tag.tag__choice

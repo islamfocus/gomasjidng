@@ -465,7 +465,6 @@ p {
   font-size: 1.6rem; }
 
 .title {
-  word-wrap: break-word;
   position: relative;
   z-index: 2;
   margin: 0;
@@ -493,7 +492,6 @@ p {
 
 .title--single {
   max-width: 600px;
-  margin-top: -9rem;
   font-size: 10rem;
   text-align: center; }
 
@@ -705,7 +703,7 @@ label {
 
 .marquee {
   background: #47ec47;
-  color: #ffffff;
+  color: #303030;
   border-right: 0px solid rgba(255, 255, 255, 0.1);
   text-transform: uppercase;
   display: block;
@@ -747,7 +745,8 @@ label {
   .masjid--wide {
     width: 100%; }
   .masjid__details {
-    padding: 2rem; }
+    padding: 2rem;
+    text-transform: uppercase; }
     .masjid__details p {
       line-height: 1.2;
       margin-bottom: 0; }
@@ -836,7 +835,7 @@ label {
         background: #e6e6e6;
         padding: 1rem 1rem 1rem 4rem; }
       .tag__choice input:checked + label {
-        background: #93FF00; }
+        background: #47ec47; }
   .tag__link {
     background: #93FF00;
     color: #303030;
@@ -891,7 +890,7 @@ label {
 .single__details {
   background: white;
   position: relative;
-  padding: 3rem;
+  padding: 1rem;
   margin-top: -10rem; }
 
 .single__map {

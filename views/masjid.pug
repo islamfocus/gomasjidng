@@ -13,7 +13,19 @@ block content
   .single__details.inner
     img.single__map(src=h.staticMap(masjid.location.coordinates))
     p.single__location= masjid.location.address
-    p= masjid.description
+        //-p Profile of the Mosque
+    strong
+      p= masjid.description  
+      //-li= masjid.population
+      //-li= masjid.langservice
+      //-li= masjid.website
+    strong 
+        p= masjid.imam_name 
+        p= masjid.imam_phone_no
+        //-li= masjid.sec_name
+        //-li= masjid.sec_phone_no
+    p
+      strong Features of the Mosque
 
     if masjid.tags
       ul.tags

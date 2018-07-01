@@ -1041,31 +1041,20 @@ var _bling = __webpack_require__(1);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapOptions = {
-  center: { lat: 21.422487, lng: 39.826206 },
+  center: { lat: 6.4561, lng: 3.3893 },
   zoom: 10
 };
 
 function loadPlaces(map) {
-  var lat = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 9.0600;
-  var lng = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 7.4899;
+  var lat = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 6.4561;
+  var lng = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 3.3893;
 
   _axios2.default.get('/api/masajid/near?lat=' + lat + '&lng=' + lng).then(function (res) {
     var places = res.data;
     if (!places.length) {
       alert('SubhanalLah! no masjid was found!');
       return;
-    };
-
-    var arrow = document.querySelector('/.arrow');
-    var speed = document.querySelector('/.speed-value');
-
-    navigator.geolocation.getCurrentPosition(function (data) {
-      console.log(data);
-      speed.textContent = data.coords.speed;
-      arrow.style.transform = 'rotate(' + data.coords.heading + 'deg)';
-    }, function (err) {
-      console.error(err);
-    });
+    }
 
     // create a bounds
     var bounds = new google.maps.LatLngBounds();

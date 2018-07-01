@@ -35,8 +35,10 @@
     background: white;
     // clip-path: polygon(0px 2vw, 100% 0, 100% calc(100% - 2vw), 0% 100%);
     position: relative;
-    padding: 3rem;
+    padding: 1rem;
     margin-top: -10rem;
+    //text-transform: uppercase;
+
     //box-shadow: 0 0 10px 2px rgba(0,0,0,0.15);
   }
   &__map {

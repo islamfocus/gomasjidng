@@ -133,7 +133,7 @@ exports.searchMasajid = async (req, res) => {
   }, {
     score: { $meta: 'textScore' }
   })
-  // the sort them
+  // then sort them
   .sort({
     score: { $meta: 'textScore' }
   })

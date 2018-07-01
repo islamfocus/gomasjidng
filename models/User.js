@@ -32,7 +32,7 @@ const userSchema = new Schema({
     required: 'SubhanaLlah! Please supply a valid phone number',
   },
   choices: {
-    type: String
+    type: [String]
   },
 
   resetPasswordToken: String,

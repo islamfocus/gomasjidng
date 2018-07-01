@@ -2,22 +2,11 @@ import axios from 'axios';
 import { $ } from './bling';
 
 const mapOptions = {
-  center: { lat: 21.422487, lng: 39.826206 },
+  center: { lat: 6.4561, lng: 3.3893 },
   zoom: 10
 };
 
-const arrow = document.querySelector('/.arrow');
-const speed = document.querySelector('/.speed-value');
-
-navigator.geolocation.watchPosition((data) => {
-  console.log(data);
-  speed.textContent = data.coords.speed;
-  arrow.style.transform = `rotate(${data.coords.heading}deg)`;
-}, (err) => {
-  console.error(err);
-});
-
-function loadPlaces(map, lat = 21.422487, lng = 39.826206	) {
+function loadPlaces(map, lat = 6.4561, lng = 3.3893	) {
     axios.get(`/api/masajid/near?lat=${lat}&lng=${lng}`)
     .then(res => {
       const places = res.data;

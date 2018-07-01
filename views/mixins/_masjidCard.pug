@@ -17,7 +17,7 @@ mixin masjidCard(masjid = {})
           .masjid__action.masjid__action--count
             != h.icon('review')
             span= masjid.reviews.length
-      a(href=`/masjid/${masjid.slug}`) #{masjid.name}
+      //-a(href=`/masjid/${masjid.slug}`) #{masjid.name}
         a(href=`/masjid/${masjid.slug}`)
           img(src=`/uploads/${masjid.photo || 'masjid.png'}`)
       p
@@ -28,5 +28,6 @@ mixin masjidCard(masjid = {})
       p
         strong=masjid.name
       p= masjid.location.address
-      p= masjid.imam_phone_no
+      //-p= masjid.imam_name
+      //-p= masjid.imam_phone_no
   

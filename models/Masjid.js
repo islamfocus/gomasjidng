@@ -17,6 +17,11 @@ const masjidSchema = new mongoose.Schema({
     type: Number,
     required: 'SubhanaLlah! You must supply the phone number of the masjid imam!'
   },
+  sec_name: {
+    type: String,
+    trim: true,
+    required: 'SubhanaLlah! Please enter the name of the masjid imam!'
+  },
   sec_phone_no: {
     type: Number,
     required: 'SubhanaLlah! You must supply the phone number of the masjid secretary!'
@@ -31,6 +36,10 @@ const masjidSchema = new mongoose.Schema({
     required: 'SubhanaLlah! Please enter the language of service of the masjid!'
   },
   bank: {
+    type: String,
+    trim: true,
+  },
+  website: {
     type: String,
     trim: true,
   },
@@ -99,7 +108,9 @@ const masjidSchema = new mongoose.Schema({
 // Define our indexes
 masjidSchema.index({
   name: 'text',
-  description: 'text'
+  description: 'text',
+  imam_name: 'text',
+  sec_name: 'text'
 });
 
 masjidSchema.index({ location: '2dsphere' });

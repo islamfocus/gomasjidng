@@ -2,30 +2,19 @@ import axios from 'axios';
 import { $ } from './bling';
 
 const mapOptions = {
-  center: { lat: 21.422487, lng: 39.826206 },
+  center: { lat: 6.4561, lng: 3.3893 },
   zoom: 10
 };
 
 
-function loadPlaces(map, lat = 9.0600, lng = 7.4899	) {
+function loadPlaces(map, lat = 6.4561, lng = 3.3893	) {
     axios.get(`/api/masajid/near?lat=${lat}&lng=${lng}`)
     .then(res => {
       const places = res.data;
       if (!places.length) {
         alert('SubhanalLah! no masjid was found!');
         return;
-      };
-
-      const arrow = document.querySelector('/.arrow');
-      const speed = document.querySelector('/.speed-value');
-      
-      navigator.geolocation.getCurrentPosition((data) => {
-        console.log(data);
-        speed.textContent = data.coords.speed;
-        arrow.style.transform = `rotate(${data.coords.heading}deg)`;
-      }, (err) => {
-        console.error(err);
-      });
+      }
 
       // create a bounds
       const bounds = new google.maps.LatLngBounds();
