@@ -27,9 +27,9 @@ exports.menu = [
   //{ slug: '/top', title: 'Top', icon: 'top', },
   { slug: '/map', title: 'Connect', icon: 'connect', },
   //{ slug: '/qibla', title: 'Qibla', icon: 'qibla', },
- // { slug: '/prayertime', title: 'Salah', icon: 'salah', },
+  //{ slug: '/prayertime', title: 'Salah', icon: 'salah', },
   //{ slug: '/quran', title: 'Quran', icon: 'quran', },
- // { slug: '/sunnah', title: 'Sunnah', icon: 'sunnah', },
+  //{ slug: '/sunnah', title: 'Sunnah', icon: 'sunnah', },
 
 ];
  
